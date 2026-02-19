@@ -1,0 +1,203 @@
+:root {
+  --primary: #F64C72;
+  --primary-dark: #C2185B;
+  --accent: #FF8FA3;
+  --light: #FFF5F7;
+  --dark: #2B2B2B;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  scroll-behavior: smooth;
+}
+
+.container { width:90%; max-width:1200px; margin:auto; }
+.section { padding:70px 0; }
+.bg-light { background:var(--white); }
+
+.grid-2, .grid-3, .grid-4 { display:grid; gap:20px; }
+@media(min-width:768px){
+  .grid-2 { grid-template-columns:repeat(2,1fr); }
+  .grid-3 { grid-template-columns:repeat(3,1fr); }
+  .grid-4 { grid-template-columns:repeat(4,1fr); }
+}
+
+.header {
+  position:sticky;
+  top:0;
+  background:var(--white);
+  box-shadow:0 4px 15px rgba(246,76,114,0.15);
+  z-index:1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+
+
+.nav-links { list-style:none; display:flex; gap:20px; }
+.nav-links a { text-decoration:none; color:var(--dark); }
+.nav-links a:hover { color:var(--primary); }
+
+.hamburger { display:none; cursor:pointer; }
+
+@media(max-width:768px){
+  .nav-links { display:none; flex-direction:column; position:absolute; top:60px; right:20px; background:white; padding:20px; }
+  .nav-links.active { display:flex; }
+  .hamburger { display:block; }
+}
+
+.hero {
+  background:linear-gradient(rgba(227, 221, 223, 0.85), rgba(238, 105, 156, 0.85)),
+  url('https://images.unsplash.com/photo-1581578731548-c64695cc6952');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.btn {
+  padding:12px 25px;
+  border-radius:var(--radius);
+  text-decoration:none;
+  display:inline-block;
+  transition:.3s;
+  font-weight:600;
+}
+
+.btn-primary {
+  background:var(--primary);
+  color:white;
+  box-shadow:0 4px 15px rgba(246,76,114,0.4);
+}
+
+.btn-primary:hover {
+  background:var(--primary-dark);
+  transform:translateY(-3px);
+}
+
+.btn-secondary {
+  background:var(--accent);
+  color:white;
+}
+
+.card {
+  background:white;
+  padding:25px;
+  border-radius:var(--radius);
+  box-shadow:0 6px 20px rgba(246,76,114,0.08);
+  transition:.3s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 12px 30px rgba(246,76,114,0.2);
+}
+
+.pricing-grid { display:grid; gap:20px; }
+@media(min-width:768px){ .pricing-grid { grid-template-columns:repeat(3,1fr);} }
+
+.pricing-card { background:white; padding:30px; text-align:center; border-radius:var(--radius); }
+.highlight { border:2px solid var(--primary); }
+
+.contact-form { display:grid; gap:15px; }
+.contact-form input, select, textarea {
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:var(--radius);
+}
+
+.map iframe { width:100%; height:300px; margin-top:20px; border:0; }
+
+.cta {
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.footer {
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+.reveal { opacity:0; transform:translateY(40px); transition:1s; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+.loader {
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.loader::after {
+  content:'';
+  width:40px;
+  height:40px;
+  border:5px solid var(--primary);
+  border-top-color:transparent;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.logo {
+  display: flex;
+  align-items: center;  /* vertically align image + text */
+  gap: 12px;
+  color:var(--primary)
+}
+
+.logo img {
+  height: 110px;      /* increase logo size */
+  width: auto;
+  object-fit: contain;
+}
+
+
+.logo span {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-logo {
+  width: 180px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes spin { to { transform:rotate(360deg); } }
